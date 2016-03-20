@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,71 +19,125 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6pt-z0-R86">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sC6-Mw-gZC">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="6pt-z0-R86" secondAttribute="height" multiplier="173:160" id="2YW-E2-N2x"/>
+                                    <constraint firstAttribute="width" constant="197" id="FHd-Sj-HbG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Xza-z5-WYx"/>
+                                    <constraint firstAttribute="height" constant="44" id="fVO-se-dr4">
+                                        <variation key="heightClass=regular" constant="39"/>
+                                    </constraint>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <state key="normal" title="Look for movies">
+                                    <color key="titleColor" red="0.61960784313725492" green="0.0" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="2YW-E2-N2x"/>
+                                        <exclude reference="FHd-Sj-HbG"/>
+                                        <exclude reference="Xza-z5-WYx"/>
+                                        <exclude reference="fVO-se-dr4"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
                                     <mask key="constraints">
-                                        <include reference="2YW-E2-N2x"/>
+                                        <exclude reference="FHd-Sj-HbG"/>
+                                        <include reference="Xza-z5-WYx"/>
+                                        <exclude reference="fVO-se-dr4"/>
                                     </mask>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sC6-Mw-gZC">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <color key="tintColor" red="0.81960784313725488" green="0.0" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Look for movies"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="175" y="673" width="197" height="30"/>
                                 </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="pdR-xq-uN6">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="AZB-i1-XGo"/>
+                                    <constraint firstAttribute="width" constant="197" id="VLl-7p-cM5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <color key="tintColor" red="0.81960784310000001" green="0.0" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Your favourites"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="180" y="716" width="197" height="30"/>
+                                <state key="normal" title="Your favourites">
+                                    <color key="titleColor" red="0.61960784310000006" green="0.0" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AZB-i1-XGo"/>
+                                        <exclude reference="VLl-7p-cM5"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="AZB-i1-XGo"/>
+                                        <exclude reference="VLl-7p-cM5"/>
+                                    </mask>
                                 </variation>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Netflix" translatesAutoresizingMaskIntoConstraints="NO" id="6pt-z0-R86">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="plY-4R-AO6"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="plY-4R-AO6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="plY-4R-AO6"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="sC6-Mw-gZC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1j4-hX-hxs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sC6-Mw-gZC" secondAttribute="trailing" id="1kQ-ki-ozV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pdR-xq-uN6" secondAttribute="bottom" id="3jj-wC-L4s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pdR-xq-uN6" secondAttribute="trailing" id="7T6-mf-fQ1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6pt-z0-R86" secondAttribute="trailing" id="Ae1-VT-fhe"/>
-                            <constraint firstItem="6pt-z0-R86" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DRd-5a-uC5"/>
+                            <constraint firstItem="pdR-xq-uN6" firstAttribute="top" secondItem="sC6-Mw-gZC" secondAttribute="bottom" id="DnR-05-1Kb"/>
+                            <constraint firstItem="pdR-xq-uN6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hjj-X6-Avc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6pt-z0-R86" secondAttribute="bottom" id="XgY-QW-ovC"/>
-                            <constraint firstItem="6pt-z0-R86" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="aV7-vR-JEq"/>
+                            <constraint firstItem="6pt-z0-R86" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="167" id="c03-Fm-TpD"/>
+                            <constraint firstItem="6pt-z0-R86" firstAttribute="leading" secondItem="sC6-Mw-gZC" secondAttribute="leading" id="foa-jK-kho"/>
+                            <constraint firstItem="pdR-xq-uN6" firstAttribute="top" secondItem="sC6-Mw-gZC" secondAttribute="bottom" constant="53" id="qAm-HN-J5s"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="6pt-z0-R86"/>
                                 <exclude reference="sC6-Mw-gZC"/>
                                 <exclude reference="pdR-xq-uN6"/>
+                                <exclude reference="6pt-z0-R86"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Ae1-VT-fhe"/>
-                                <exclude reference="DRd-5a-uC5"/>
-                                <exclude reference="aV7-vR-JEq"/>
+                                <exclude reference="c03-Fm-TpD"/>
+                                <exclude reference="foa-jK-kho"/>
+                                <exclude reference="1j4-hX-hxs"/>
+                                <exclude reference="1kQ-ki-ozV"/>
+                                <exclude reference="7T6-mf-fQ1"/>
+                                <exclude reference="DnR-05-1Kb"/>
+                                <exclude reference="Hjj-X6-Avc"/>
+                                <exclude reference="qAm-HN-J5s"/>
+                                <exclude reference="3jj-wC-L4s"/>
                                 <exclude reference="XgY-QW-ovC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
-                                <include reference="6pt-z0-R86"/>
                                 <include reference="sC6-Mw-gZC"/>
                                 <include reference="pdR-xq-uN6"/>
+                                <include reference="6pt-z0-R86"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Ae1-VT-fhe"/>
-                                <include reference="DRd-5a-uC5"/>
-                                <include reference="aV7-vR-JEq"/>
+                                <include reference="c03-Fm-TpD"/>
+                                <include reference="foa-jK-kho"/>
+                                <include reference="1j4-hX-hxs"/>
+                                <include reference="1kQ-ki-ozV"/>
+                                <include reference="7T6-mf-fQ1"/>
+                                <include reference="DnR-05-1Kb"/>
+                                <include reference="Hjj-X6-Avc"/>
+                                <exclude reference="qAm-HN-J5s"/>
+                                <include reference="3jj-wC-L4s"/>
                                 <exclude reference="XgY-QW-ovC"/>
                             </mask>
                         </variation>
@@ -95,6 +149,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="346" height="320"/>
+        <image name="Netflix" width="596" height="162"/>
     </resources>
 </document>
