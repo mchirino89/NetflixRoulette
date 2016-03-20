@@ -8,15 +8,17 @@
 
 import UIKit
 
-class SearchViewController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate  {
-
+class SearchViewController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate  {
+    @IBOutlet var query: UITextField!
     @IBOutlet var searchType: UIPickerView!
     let pickerData = ["Title", "Director", "Actor/Actress"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchType.dataSource = self
-        self.searchType.delegate = self
+        view.layoutIfNeeded()
+        searchType.dataSource = self
+        searchType.delegate = self
+        query.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,13 +39,29 @@ class SearchViewController: UIViewController ,UIPickerViewDataSource,UIPickerVie
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-         print("Selected: ", pickerData[row])
+        query.placeholder = "Search for " + pickerData[row].lowercaseString
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = pickerData[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!, NSForegroundColorAttributeName:UIColor.blueColor()])
-        return myTitle
+        
+        return NSAttributedString(string: pickerData[row], attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!, NSForegroundColorAttributeName:UIColor(red:CGFloat((0xAE0D14 & 0xFF0000) >> 16)/256.0, green:CGFloat((0xAE0D14 & 0xFF00) >> 8)/256.0, blue:CGFloat(0xAE0D14 & 0xFF)/256.0, alpha:1.0)])
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        query.resignFirstResponder()
+        if let movie = query.text {
+            print("Searching for: ", movie.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()))
+        }
+        else{
+            print("No query typed!")
+        }
+
+        return true
     }
 
     /*

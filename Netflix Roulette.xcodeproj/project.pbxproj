@@ -11,7 +11,6 @@
 		22205DA71C9F36490049AFBD /* FavouritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22205DA61C9F36490049AFBD /* FavouritesTableViewCell.swift */; };
 		22205DA91C9F37080049AFBD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22205DA81C9F37080049AFBD /* SearchViewController.swift */; };
 		2222DCD71C9DC18400ED372C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222DCD61C9DC18400ED372C /* AppDelegate.swift */; };
-		2222DCD91C9DC18400ED372C /* UIHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222DCD81C9DC18400ED372C /* UIHomeController.swift */; };
 		2222DCDC1C9DC18400ED372C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2222DCDA1C9DC18400ED372C /* Main.storyboard */; };
 		2222DCDF1C9DC18400ED372C /* Netflix_Roulette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2222DCDD1C9DC18400ED372C /* Netflix_Roulette.xcdatamodeld */; };
 		2222DCE11C9DC18400ED372C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2222DCE01C9DC18400ED372C /* Assets.xcassets */; };
@@ -24,7 +23,6 @@
 		22205DA81C9F37080049AFBD /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2222DCD31C9DC18400ED372C /* Netflix Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2222DCD61C9DC18400ED372C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2222DCD81C9DC18400ED372C /* UIHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHomeController.swift; sourceTree = "<group>"; };
 		2222DCDB1C9DC18400ED372C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2222DCDE1C9DC18400ED372C /* Netflix_Roulette.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Netflix_Roulette.xcdatamodel; sourceTree = "<group>"; };
 		2222DCE01C9DC18400ED372C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 			children = (
 				2222DCD61C9DC18400ED372C /* AppDelegate.swift */,
 				22205DA21C9F15070049AFBD /* NavigationController.swift */,
-				2222DCD81C9DC18400ED372C /* UIHomeController.swift */,
 				22205DA81C9F37080049AFBD /* SearchViewController.swift */,
 				22205DA61C9F36490049AFBD /* FavouritesTableViewCell.swift */,
 				2222DCDA1C9DC18400ED372C /* Main.storyboard */,
@@ -149,7 +146,6 @@
 			files = (
 				22205DA71C9F36490049AFBD /* FavouritesTableViewCell.swift in Sources */,
 				22205DA91C9F37080049AFBD /* SearchViewController.swift in Sources */,
-				2222DCD91C9DC18400ED372C /* UIHomeController.swift in Sources */,
 				22205DA31C9F15070049AFBD /* NavigationController.swift in Sources */,
 				2222DCDF1C9DC18400ED372C /* Netflix_Roulette.xcdatamodeld in Sources */,
 				2222DCD71C9DC18400ED372C /* AppDelegate.swift in Sources */,

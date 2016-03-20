@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Home Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="UIHomeController" customModule="Netflix_Roulette" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -58,7 +58,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <state key="normal" title="Your favourites">
-                                    <color key="titleColor" red="0.61960784310000006" green="0.0" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.64454774698340878" green="0.0047880819804115085" blue="0.047061851602861082" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -167,50 +167,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parameter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mk7-2m-ftc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scroll through the parameters and select the one you want to search a movie for:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-RY-G5Y">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="140" y="73" width="120" height="26"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select the parameter by which you which to search a movie" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-RY-G5Y">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="8" width="369" height="57"/>
-                                </variation>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ike-VK-IcO">
                                 <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="102" y="107" width="196" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="duv-m4-T3c"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="duv-m4-T3c"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="duv-m4-T3c"/>
+                                    </mask>
                                 </variation>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for title" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6Pi-LN-Jm8">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <color key="textColor" red="0.41176470588235292" green="0.0" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="webSearch" keyboardAppearance="alert" returnKeyType="go"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYT-kN-viC">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Search!">
+                                    <color key="titleColor" red="0.61960784313725492" green="0.0" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Pi-LN-Jm8" firstAttribute="top" secondItem="Ike-VK-IcO" secondAttribute="bottom" constant="8" id="1E1-Bv-Sx2">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="FYT-kN-viC" firstAttribute="trailing" secondItem="cMr-qn-SPK" secondAttribute="trailingMargin" id="1Xf-f0-cFR"/>
+                            <constraint firstItem="6Pi-LN-Jm8" firstAttribute="leading" secondItem="cMr-qn-SPK" secondAttribute="leadingMargin" id="76E-kx-1w3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IdP-RY-G5Y" secondAttribute="trailing" id="94T-hw-vXX"/>
+                            <constraint firstItem="IdP-RY-G5Y" firstAttribute="leading" secondItem="cMr-qn-SPK" secondAttribute="leadingMargin" id="DIZ-wa-KMP"/>
+                            <constraint firstItem="Ike-VK-IcO" firstAttribute="top" secondItem="jIB-AA-jAV" secondAttribute="bottom" constant="50" id="PqD-uE-4nY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Pi-LN-Jm8" secondAttribute="trailing" id="Z9n-Ww-UXy"/>
+                            <constraint firstItem="IdP-RY-G5Y" firstAttribute="top" secondItem="jIB-AA-jAV" secondAttribute="bottom" id="jAk-hu-3fA"/>
+                            <constraint firstItem="FYT-kN-viC" firstAttribute="top" secondItem="6Pi-LN-Jm8" secondAttribute="bottom" constant="20" id="luS-NM-gfM"/>
+                            <constraint firstItem="Ike-VK-IcO" firstAttribute="leading" secondItem="cMr-qn-SPK" secondAttribute="leadingMargin" id="m9S-OT-SHc"/>
+                            <constraint firstItem="Ike-VK-IcO" firstAttribute="trailing" secondItem="cMr-qn-SPK" secondAttribute="trailingMargin" id="xR5-FA-IfY"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="mk7-2m-ftc"/>
                                 <exclude reference="IdP-RY-G5Y"/>
                                 <exclude reference="Ike-VK-IcO"/>
+                                <exclude reference="6Pi-LN-Jm8"/>
+                                <exclude reference="FYT-kN-viC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="94T-hw-vXX"/>
+                                <exclude reference="DIZ-wa-KMP"/>
+                                <exclude reference="jAk-hu-3fA"/>
+                                <exclude reference="PqD-uE-4nY"/>
+                                <exclude reference="m9S-OT-SHc"/>
+                                <exclude reference="xR5-FA-IfY"/>
+                                <exclude reference="1E1-Bv-Sx2"/>
+                                <exclude reference="76E-kx-1w3"/>
+                                <exclude reference="Z9n-Ww-UXy"/>
+                                <exclude reference="1Xf-f0-cFR"/>
+                                <exclude reference="luS-NM-gfM"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="mk7-2m-ftc"/>
                                 <include reference="IdP-RY-G5Y"/>
                                 <include reference="Ike-VK-IcO"/>
+                                <include reference="6Pi-LN-Jm8"/>
+                                <include reference="FYT-kN-viC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="94T-hw-vXX"/>
+                                <include reference="DIZ-wa-KMP"/>
+                                <include reference="jAk-hu-3fA"/>
+                                <include reference="PqD-uE-4nY"/>
+                                <include reference="m9S-OT-SHc"/>
+                                <include reference="xR5-FA-IfY"/>
+                                <include reference="1E1-Bv-Sx2"/>
+                                <include reference="76E-kx-1w3"/>
+                                <include reference="Z9n-Ww-UXy"/>
+                                <include reference="1Xf-f0-cFR"/>
+                                <include reference="luS-NM-gfM"/>
                             </mask>
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="query" destination="6Pi-LN-Jm8" id="85H-i3-yOP"/>
                         <outlet property="searchType" destination="Ike-VK-IcO" id="Vhb-fz-Myu"/>
                     </connections>
                 </viewController>
