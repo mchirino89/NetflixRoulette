@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -68,10 +69,10 @@
                                 <exclude reference="pdR-xq-uN6"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="XgY-QW-ovC"/>
                                 <exclude reference="Ae1-VT-fhe"/>
                                 <exclude reference="DRd-5a-uC5"/>
                                 <exclude reference="aV7-vR-JEq"/>
-                                <exclude reference="XgY-QW-ovC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -81,10 +82,10 @@
                                 <include reference="pdR-xq-uN6"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="XgY-QW-ovC"/>
                                 <include reference="Ae1-VT-fhe"/>
                                 <include reference="DRd-5a-uC5"/>
                                 <include reference="aV7-vR-JEq"/>
-                                <exclude reference="XgY-QW-ovC"/>
                             </mask>
                         </variation>
                     </view>
@@ -95,6 +96,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="346" height="320"/>
+        <image name="logo" width="345" height="320"/>
     </resources>
 </document>
