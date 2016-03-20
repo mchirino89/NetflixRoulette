@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R1d-Mv-dPJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Netflix_Roulette" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="UIHomeController" customModule="Netflix_Roulette" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -29,7 +29,7 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <state key="normal" title="Look for movies">
+                                <state key="normal" title="Search movies">
                                     <color key="titleColor" red="0.61960784313725492" green="0.0" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -46,6 +46,9 @@
                                         <exclude reference="fVO-se-dr4"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="z1R-fq-ZrP" kind="show" id="NNk-nq-UvO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="pdR-xq-uN6">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -69,6 +72,9 @@
                                         <exclude reference="VLl-7p-cM5"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="KTv-Sb-MAm" kind="show" id="8lP-yj-8oi"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Netflix" translatesAutoresizingMaskIntoConstraints="NO" id="6pt-z0-R86">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -97,7 +103,7 @@
                             <constraint firstItem="pdR-xq-uN6" firstAttribute="top" secondItem="sC6-Mw-gZC" secondAttribute="bottom" id="DnR-05-1Kb"/>
                             <constraint firstItem="pdR-xq-uN6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hjj-X6-Avc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6pt-z0-R86" secondAttribute="bottom" id="XgY-QW-ovC"/>
-                            <constraint firstItem="6pt-z0-R86" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="167" id="c03-Fm-TpD"/>
+                            <constraint firstItem="6pt-z0-R86" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="c03-Fm-TpD"/>
                             <constraint firstItem="6pt-z0-R86" firstAttribute="leading" secondItem="sC6-Mw-gZC" secondAttribute="leading" id="foa-jK-kho"/>
                             <constraint firstItem="pdR-xq-uN6" firstAttribute="top" secondItem="sC6-Mw-gZC" secondAttribute="bottom" constant="53" id="qAm-HN-J5s"/>
                         </constraints>
@@ -108,17 +114,17 @@
                                 <exclude reference="6pt-z0-R86"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Ae1-VT-fhe"/>
-                                <exclude reference="c03-Fm-TpD"/>
-                                <exclude reference="foa-jK-kho"/>
-                                <exclude reference="1j4-hX-hxs"/>
-                                <exclude reference="1kQ-ki-ozV"/>
+                                <exclude reference="3jj-wC-L4s"/>
+                                <exclude reference="XgY-QW-ovC"/>
                                 <exclude reference="7T6-mf-fQ1"/>
                                 <exclude reference="DnR-05-1Kb"/>
                                 <exclude reference="Hjj-X6-Avc"/>
                                 <exclude reference="qAm-HN-J5s"/>
-                                <exclude reference="3jj-wC-L4s"/>
-                                <exclude reference="XgY-QW-ovC"/>
+                                <exclude reference="1j4-hX-hxs"/>
+                                <exclude reference="1kQ-ki-ozV"/>
+                                <exclude reference="Ae1-VT-fhe"/>
+                                <exclude reference="c03-Fm-TpD"/>
+                                <exclude reference="foa-jK-kho"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -128,24 +134,154 @@
                                 <include reference="6pt-z0-R86"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Ae1-VT-fhe"/>
-                                <include reference="c03-Fm-TpD"/>
-                                <include reference="foa-jK-kho"/>
-                                <include reference="1j4-hX-hxs"/>
-                                <include reference="1kQ-ki-ozV"/>
+                                <include reference="3jj-wC-L4s"/>
+                                <exclude reference="XgY-QW-ovC"/>
                                 <include reference="7T6-mf-fQ1"/>
                                 <include reference="DnR-05-1Kb"/>
                                 <include reference="Hjj-X6-Avc"/>
                                 <exclude reference="qAm-HN-J5s"/>
-                                <include reference="3jj-wC-L4s"/>
-                                <exclude reference="XgY-QW-ovC"/>
+                                <include reference="1j4-hX-hxs"/>
+                                <include reference="1kQ-ki-ozV"/>
+                                <include reference="Ae1-VT-fhe"/>
+                                <include reference="c03-Fm-TpD"/>
+                                <include reference="foa-jK-kho"/>
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="fVf-Vq-lqr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-251" y="312.75"/>
+            <point key="canvasLocation" x="234" y="328.5"/>
+        </scene>
+        <!--Search movies-->
+        <scene sceneID="Vnc-gF-hO7">
+            <objects>
+                <viewController storyboardIdentifier="Search" title="Search movies" id="z1R-fq-ZrP" customClass="SearchViewController" customModule="Netflix_Roulette" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jIB-AA-jAV"/>
+                        <viewControllerLayoutGuide type="bottom" id="1O2-UR-6bs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cMr-qn-SPK">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parameter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mk7-2m-ftc">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="140" y="73" width="120" height="26"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select the parameter by which you which to search a movie" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-RY-G5Y">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="8" width="369" height="57"/>
+                                </variation>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ike-VK-IcO">
+                                <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="102" y="107" width="196" height="139"/>
+                                </variation>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="mk7-2m-ftc"/>
+                                <exclude reference="IdP-RY-G5Y"/>
+                                <exclude reference="Ike-VK-IcO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="mk7-2m-ftc"/>
+                                <include reference="IdP-RY-G5Y"/>
+                                <include reference="Ike-VK-IcO"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="searchType" destination="Ike-VK-IcO" id="Vhb-fz-Myu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUw-Mo-74h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-261" y="1308.75"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Jwf-Lb-e4X">
+            <objects>
+                <navigationController title="Home" modalTransitionStyle="crossDissolve" hidesBarsWhenKeyboardAppears="YES" id="R1d-Mv-dPJ" customClass="NavigationController" customModule="Netflix_Roulette" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="CWU-Sb-166">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bvr-kJ-3em"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdW-Lv-dGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234" y="-639"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="sAS-Hb-QYB">
+            <objects>
+                <tableViewController storyboardIdentifier="Favourite" id="KTv-Sb-MAm" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="fpW-2M-Teb">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.61960784310000006" green="0.0" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="78" id="1bJ-dm-XYP" customClass="FavouritesTableViewCell" customModule="Netflix_Roulette" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1bJ-dm-XYP" id="8mm-aA-ll6">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kuv-s2-6J1">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="8" y="8" width="53" height="61.5"/>
+                                            </variation>
+                                        </imageView>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="Kuv-s2-6J1"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="Kuv-s2-6J1"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KTv-Sb-MAm" id="aPA-Dj-42Q"/>
+                            <outlet property="delegate" destination="KTv-Sb-MAm" id="jPo-G1-CqN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yEc-JL-719" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865.5" y="1237.5"/>
         </scene>
     </scenes>
     <resources>
