@@ -8,16 +8,18 @@
 
 import UIKit
 
-class SearchViewController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate  {
+class SearchViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var query: UITextField!
-    @IBOutlet var searchType: UIPickerView!
+    @IBOutlet var loader: UIActivityIndicatorView!
+    @IBOutlet var searchButton: UIButton!
     let pickerData = ["Title", "Director", "Actor/Actress"]
+    var selectedType:Int = 0;
+    var found = false;
+    var queryResult : NSDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layoutIfNeeded()
-        searchType.dataSource = self
-        searchType.delegate = self
         query.delegate = self
     }
 
@@ -26,52 +28,81 @@ class SearchViewController: UIViewController ,UIPickerViewDataSource,UIPickerVie
         print("Memory warning");
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.pickerData.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        query.placeholder = "Search for " + pickerData[row].lowercaseString
-    }
-    
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        
-        return NSAttributedString(string: pickerData[row], attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 15.0)!, NSForegroundColorAttributeName:UIColor(red:CGFloat((0xAE0D14 & 0xFF0000) >> 16)/256.0, green:CGFloat((0xAE0D14 & 0xFF00) >> 8)/256.0, blue:CGFloat(0xAE0D14 & 0xFF)/256.0, alpha:1.0)])
-    }
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        searching()
+        return true
+    }
+    
+    @IBAction func searchingQuery(sender: AnyObject) {
         query.resignFirstResponder()
+        searching()
+    }
+    
+    func searching() {
+        isSerching(true)
         if let movie = query.text {
-            print("Searching for: ", movie.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()))
+            let scriptUrl = "https://community-netflix-roulette.p.mashape.com/api.php?"
+            let queryString = movie.stringByReplacingOccurrencesOfString(" ", withString: "+")
+            let urlWithParams = scriptUrl + pickerData[selectedType] + "=\(queryString)"
+            let myUrl = NSURL(string: urlWithParams.lowercaseString);
+            let request = NSMutableURLRequest(URL:myUrl!);
+            request.HTTPMethod = "GET"
+            request.addValue("6g0AoCy9XomshdcqFcmjyAQLFAcFp11wQM0jsn88drQaix06wW", forHTTPHeaderField: "X-Mashape-Key")
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                if error != nil {
+                    print("error=\(error)")
+                    return
+                }
+                do {
+                    if let convertedJsonIntoDict = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        let errorCode = convertedJsonIntoDict["errorcode"] as? Int
+                        if errorCode == 404 {
+                            self.queryResult = ["Message": (convertedJsonIntoDict["message"] as? String)!]
+                        }
+                        else{
+                            self.queryResult = convertedJsonIntoDict
+                        }
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.isSerching(false)
+                            self.query.text = ""
+                            self.performSegueWithIdentifier("movieDetail", sender: self)
+                        })
+                    }
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+            task.resume()
         }
         else{
             print("No query typed!")
         }
-
-        return true
     }
-
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier == "movieDetail") {
+            let destinationController = (segue.destinationViewController as! MovieDetailViewController)
+            destinationController.result = self.queryResult
+        }
     }
-    */
+
+    func isSerching(searching: Bool) {
+        if searching {
+            loader.startAnimating()
+        }
+        else{
+            loader.stopAnimating()
+            loader.hidden = true
+        }
+        query.enabled = !searching;
+        searchButton.enabled = !searching;
+    }
 
 }
